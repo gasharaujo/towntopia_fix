@@ -1,0 +1,34 @@
+# Gash's TownTopia Fix
+
+Addon para **Minecraft 1.21.1**, **NeoForge 21.1.238+** e **TownTopia 0.1.2**. O TownTopia também exige GeckoLib 4.8 ou superior na série 4.x.
+
+## Instalação
+
+Substitua a versão anterior por `build/libs/gashs-towntopia-fix-1.0.1.jar` na pasta `mods`, junto com o TownTopia e o GeckoLib. Para um servidor dedicado, instale o addon também nos clientes.
+
+## Compatibilidade
+
+| Categoria | O que o addon reconhece |
+| --- | --- |
+| Armazenamento | Baús e barris pelas tags de bloco ou item, armários do Farmer's Delight, gavetas locais de itens do Functional Storage e gavetas, armários, caixotes e coolers do Refurbished Furniture. |
+| Móveis | O mapa do marcador da casa desenha os novos armazenamentos e móveis do Refurbished Furniture, como cadeiras, mesas e sofás, quando eles estão junto ao piso reconhecido do cômodo. |
+| Bancadas | Variantes de `CraftingTableBlock` e bancadas nas tags `c:crafting_tables`, `c:workbenches` ou `gashs_towntopia_fix:crafting_tables`. Contam como bancadas no Armazém e na Cozinha. |
+| Plantações | Plantas modded baseadas em `CropBlock` cujo item de plantio coloca o bloco da cultura. Os agricultores usam o ciclo de plantio, crescimento e colheita do TownTopia em terra arada. |
+| Ferramentas | Picaretas, machados, enxadas e espadas nas tags da categoria, além das tesouras de colheita marcadas em `towntopia:farmer_shears`. As ferramentas modded entram no nível vanilla equivalente pela durabilidade, com o material de ouro reconhecido separadamente. |
+| Minérios | O minerador identifica blocos em `c:ores` nos túneis e veios e usa a tabela de loot do bloco. As receitas do ferreiro e os minérios bônus gerados pelo TownTopia seguem as regras do mod base. |
+
+O menu do agricultor usa as mesmas preferências de plantio para as sementes detectadas. Culturas com solos, idades ou colheitas especiais precisam de uma definição específica. O arroz e as trepadeiras do Farmer's Delight têm mecânicas próprias.
+
+## Adicionar blocos e itens por datapack
+
+- Bancadas podem entrar em `data/gashs_towntopia_fix/tags/block/crafting_tables.json`.
+- Armazenamento pode entrar em `data/towntopia/tags/block/storage_containers.json`.
+- Ferramentas podem entrar nas tags de item `minecraft:pickaxes`, `minecraft:axes`, `minecraft:hoes` e `minecraft:swords`. Tesouras de colheita usam `towntopia:farmer_shears`.
+- Minérios podem entrar em `data/c/tags/block/ores.json`.
+- Definições de plantações usam `data/<namespace>/farmer_crops/<cultura>.json` no formato do TownTopia. Para um exemplo, consulte `data/towntopia/farmer_crops/wheat.json` dentro do JAR do TownTopia.
+
+Use `"replace": false` nas tags para adicionar entradas às que o modpack já fornece.
+
+## Compilação
+
+Com o JDK 21, execute `./gradlew.bat build` no Windows ou `./gradlew build` no Linux. O Gradle resolve o TownTopia pelo Curse Maven. Para compilar com uma cópia local, passe `"-PtownTopiaJar=C:\caminho\towntopia-0.1.2.jar"`.

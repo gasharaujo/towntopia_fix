@@ -1,0 +1,28 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.gasharaujo.towntopiafix.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "BuildingCraftingMixin",
+    "ButcherSwordRequirementMixin",
+    "CropDefinitionRegistryMixin",
+    "FarmerShearsMixin",
+    "FarmerShearsRequirementMixin",
+    "FarmerSettingsMixin",
+    "FletchArrowsActivityMixin",
+    "GuardSettingsMixin",
+    "LumberjackSettingsMixin",
+    "MinerActivityMixin",
+    "MinerBalanceMixin",
+    "NavNodeMixin",
+    "StorageContainersMixin",
+    "ToolSelectionMixin"
+  ],
+  "client": [
+    "RoomSchematicViewMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
