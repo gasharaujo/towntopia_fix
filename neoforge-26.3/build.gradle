@@ -1,0 +1,67 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.148'
+}
+
+group = 'dev.gasharaujo'
+version = '1.1.0'
+
+base {
+    archivesName = 'gashs-towntopia-fix-neoforge-26.3'
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(25)
+
+neoForge {
+    version = '26.3.0.113'
+}
+
+repositories {
+    maven {
+        url = 'https://api.modrinth.com/maven'
+        content { includeGroup 'maven.modrinth' }
+    }
+}
+
+dependencies {
+    compileOnly 'org.apiguardian:apiguardian-api:1.1.2'
+    compileOnly('maven.modrinth:ae2:PDPQ4WfW') { transitive = false }
+}
+
+
+def requiredPortJar = { String name, String label ->
+    def dependency = providers.gradleProperty(name).map { file(it) }
+    if (dependency.isPresent()) {
+        dependencies {
+            compileOnly files(dependency)
+            runtimeOnly files(dependency)
+        }
+    }
+    tasks.named('compileJava').configure {
+        doFirst {
+            if (!dependency.isPresent() || !dependency.get().isFile()) {
+                throw new GradleException("Supply the NeoForge 26.3 build of ${label} with -P${name}=<path to its jar>.")
+            }
+        }
+    }
+}
+
+requiredPortJar('townTopiaJar', 'TownTopia')
+
+def refinedStorageJar = providers.gradleProperty('refinedStorageJar')
+if (refinedStorageJar.isPresent()) {
+    sourceSets.main.java.srcDir 'src/refinedStorage/java'
+    dependencies {
+        compileOnly files(refinedStorageJar)
+        runtimeOnly files(refinedStorageJar)
+    }
+}
+dependencies {
+    for (def name : ['geckoLibJar', 'appliedEnergisticsJar', 'guideMeJar']) {
+        if (providers.gradleProperty(name).isPresent()) runtimeOnly files(providers.gradleProperty(name))
+    }
+}
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.compilerArgs.add('-proc:none')
+}
