@@ -4,10 +4,10 @@ plugins {
 }
 
 group = 'dev.gasharaujo'
-version = '1.1.0'
+version = '1.1.1'
 
 base {
-    archivesName = 'gashs-towntopia-fix'
+    archivesName = 'gashs-towntopia-fix-neoforge-1.21.1'
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)

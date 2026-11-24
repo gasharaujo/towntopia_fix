@@ -4,7 +4,7 @@ license = "All Rights Reserved"
 
 [[mods]]
 modId = "gashs_towntopia_fix"
-version = "1.1.0"
+version = "1.1.1"
 displayName = "Gash's TownTopia Fix"
 authors = "Gash"
 description = "Lets TownTopia villagers use storage, crafting tables, crops, tools and ores from other mods."

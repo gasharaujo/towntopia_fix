@@ -4,7 +4,11 @@ Addon para **Minecraft 1.21.1**, **NeoForge 21.1.238+** e **TownTopia 0.1.2 ou s
 
 ## Instalação
 
-Substitua a versão anterior por `build/libs/gashs-towntopia-fix-1.1.0.jar` na pasta `mods`, junto com o TownTopia e o GeckoLib. Para um servidor dedicado, instale o addon também nos clientes.
+Substitua a versão anterior por `gashs-towntopia-fix-neoforge-1.21.1-1.1.1.jar` na pasta `mods`, junto com o TownTopia e o GeckoLib. Para um servidor dedicado, instale o addon também nos clientes.
+
+## TownKit
+
+O [TownKit](https://github.com/y33tysk33ty/townkit-mod) é opcional. As bancadas reconhecidas pelo addon funcionam junto com as substituições de estações registradas no TownKit. Os minérios da tag `c:ores` também continuam reconhecidos junto com os minérios registrados pelo TownKit. O TownKit 0.8.1 requer TownTopia 0.1.3 ou superior.
 
 ## Refined Storage e Applied Energistics 2
 

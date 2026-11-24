@@ -1,6 +1,7 @@
 package dev.gasharaujo.towntopiafix.mixin;
 
 import com.alex.test.village.villagers.miner.behavior.MinerActivity;
+import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import dev.gasharaujo.towntopiafix.CompatibleTools;
 import java.util.Set;
 import net.minecraft.tags.ItemTags;
@@ -14,11 +15,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(value = MinerActivity.class, remap = false)
 abstract class MinerActivityMixin {
-    @Inject(method = "isOre", at = @At("RETURN"), cancellable = true)
-    private static void recognizeModdedOre(BlockState state, CallbackInfoReturnable<Boolean> result) {
-        if (!result.getReturnValue() && state.is(Tags.Blocks.ORES)) {
-            result.setReturnValue(true);
-        }
+    @ModifyReturnValue(method = "isOre", at = @At("RETURN"))
+    private static boolean recognizeModdedOre(boolean recognized, BlockState state) {
+        return recognized || state.is(Tags.Blocks.ORES);
     }
 
     @Inject(method = "allowedPickaxes", at = @At("RETURN"), cancellable = true)
