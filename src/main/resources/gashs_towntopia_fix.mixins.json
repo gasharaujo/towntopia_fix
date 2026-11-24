@@ -16,7 +16,9 @@
     "MinerActivityMixin",
     "MinerBalanceMixin",
     "NavNodeMixin",
+    "StorageBuildingMixin",
     "StorageContainersMixin",
+    "StorageRoomAccessMixin",
     "ToolSelectionMixin"
   ],
   "client": [
