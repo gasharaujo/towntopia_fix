@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "refurbished_furniture:workbench", "required": false },
+    {
+      "id": "#c:crafting_tables",
+      "required": false
+    },
+    {
+      "id": "#c:workbenches",
+      "required": false
+    },
+    {
+      "id": "tconstruct:crafting_station",
+      "required": false
+    },
+    {
+      "id": "tconstruct:crafting_station_slab",
+      "required": false
+    },
+    {
+      "id": "craftingstation:crafting_station",
+      "required": false
+    }
+  ]
+}

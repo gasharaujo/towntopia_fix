@@ -4,7 +4,7 @@ license = "All Rights Reserved"
 
 [[mods]]
 modId = "gashs_towntopia_fix"
-version = "1.0.1"
+version = "1.1.1"
 displayName = "Gash's TownTopia Fix"
 authors = "Gash"
 description = "Lets TownTopia villagers use storage, crafting tables, crops, tools and ores from other mods."
@@ -29,6 +29,6 @@ side = "BOTH"
 [[dependencies.gashs_towntopia_fix]]
 modId = "towntopia"
 type = "required"
-versionRange = "[0.1.2]"
+versionRange = "[0.1.2,)"
 ordering = "AFTER"
 side = "BOTH"

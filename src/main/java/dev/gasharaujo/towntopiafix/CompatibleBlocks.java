@@ -5,10 +5,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CraftingTableBlock;
 import net.minecraft.world.level.block.EnderChestBlock;
-import net.minecraft.world.level.block.state.BlockState;
 
 public final class CompatibleBlocks {
     private static final TagKey<Block> CRAFTING_TABLES = TagKey.create(
@@ -28,10 +26,6 @@ public final class CompatibleBlocks {
         }
         var item = block.asItem().builtInRegistryHolder();
         return item.is(ITEM_CRAFTING_TABLES) || item.is(ITEM_WORKBENCHES);
-    }
-
-    public static boolean matchesStation(BlockState state, Block expected) {
-        return expected == Blocks.CRAFTING_TABLE ? isCraftingTable(state.getBlock()) : state.is(expected);
     }
 
     public static boolean isTaggedStorageItem(Block block) {
